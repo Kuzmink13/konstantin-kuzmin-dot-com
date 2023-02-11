@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "tsc": "tsc --noEmit ",
     "tsc_watch": "tsc --watch",
-    "lint_staged": "lint-staged"
+    "lint_staged": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "astro": "^2.0.10"
@@ -27,6 +28,7 @@
     "lint-staged": "^13.1.1",
     "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.8.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "husky": "^8.0.0"
   }
 }
