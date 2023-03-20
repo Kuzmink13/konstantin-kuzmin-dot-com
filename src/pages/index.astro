@@ -1,15 +1,33 @@
 ---
+import IndexListItem from '../components/IndexListItem.astro'
+import { getCollection } from 'astro:content'
+import Page from '../layouts/Page.astro'
+
+let content = await getCollection('blog')
 ---
 
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<Page>
+  <section class='flex h-56 grow-0 flex-col items-center justify-center gap-2'>
+    <h2 class='text-4xl font-bold'>Tinkered Thoughts; Teeming Tomorrow</h2>
+    <p class='text-xl'>
+      <i>Stuff</i> by Konstantin Kuzmin. <a
+        class='font-bold text-blue-600'
+        href='./about'>Learn More</a
+      >
+    </p>
+  </section>
+  <section class='mx-auto max-w-3xl'>
+    <h2 class='sr-only'>Content</h2>
+    <ol class='flex flex-col gap-4'>
+      {
+        content.map((item) => (
+          <IndexListItem
+            title={item.data.title}
+            body={item.body}
+            slug={item.slug}
+          />
+        ))
+      }
+    </ol>
+  </section>
+</Page>
