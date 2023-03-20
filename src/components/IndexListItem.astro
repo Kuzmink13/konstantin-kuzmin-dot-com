@@ -1,0 +1,22 @@
+---
+import { faker } from '@faker-js/faker'
+
+interface Props {
+  title: string
+  body: string
+  slug: string
+}
+const { title, body, slug } = Astro.props
+---
+
+<li>
+  <a class='flex flex-row gap-4 hover:bg-neutral-100' href={`./${slug}`}>
+    <figure class='h-36 w-36 shrink-0'>
+      <img src={faker.image.cats(150, 150, true)} />
+    </figure>
+    <div>
+      <h3 class='font-bold'>{title}</h3>
+      <p class='line-clamp-4'>{body.split('\r\n').filter(Boolean)[0]}</p>
+    </div>
+  </a>
+</li>

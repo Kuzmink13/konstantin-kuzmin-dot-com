@@ -1,0 +1,23 @@
+---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Fonts from './Fonts.astro'
+---
+
+<html lang='en' data-theme='light'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <Fonts />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Konstantin Kuzmin</title>
+  </head>
+  <body class='flex h-screen flex-col'>
+    <Header />
+    <main class='flex grow flex-col justify-start gap-4'>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
